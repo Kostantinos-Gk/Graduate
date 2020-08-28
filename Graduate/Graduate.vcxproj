@@ -139,7 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Graduate.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TEIAthensGraduate.cpp" />
+    <ClCompile Include="TEIPeireusGraduate.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Graduate.h" />
+    <ClInclude Include="TEIAthensGraduate.h" />
+    <ClInclude Include="TEIPeireusGraduate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
