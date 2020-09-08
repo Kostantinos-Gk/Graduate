@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <algorithm>
 #include "Graduate.h"
 #include "TEIAthensGraduate.h"
 #include "TEIPeireusGraduate.h"
@@ -14,9 +15,10 @@ using namespace std;
 
 void DisplayList(list <Graduate*> , list <Graduate*>::iterator );
 void FindStudentByID(list <Graduate*> , list <Graduate*>::iterator);
-double AverageGrade(list <Graduate*>, list <Graduate*>::iterator);
+double AverageGrade‘EIPeireus(list <Graduate*>, list <Graduate*>::iterator);
+double AverageGrade‘EIAthens(list <Graduate*>, list <Graduate*>::iterator);
 
-
+//TODO 3 and 4.
 
 int main() {
 	/*
@@ -28,9 +30,12 @@ int main() {
 	*/
 	list <Graduate *> graduateList;  //list of graduate, maube later i will need pointers
 	list <Graduate *>::iterator it;
+	double averageGradeTeiPeireus = 0.0;
+	double averageGradeTeiAthens = 0.0;
+
 	try {
 		graduateList.push_back(new TEIPeireusGraduate("Maria Oikonomidi", "000001", 5.5, 7.0));
-		graduateList.push_back(new TEIAthensGraduate("Nikos Spirou", "000002", 4.0, 11.0));
+		graduateList.push_back(new TEIAthensGraduate("Nikos Spirou", "000002", 5.0, 7.0));
 		graduateList.push_back(new TEIAthensGraduate("Giannis Alifantis", "000003", 8.0, 6.6));
 		graduateList.push_back(new TEIAthensGraduate("Kyriakos Swthriou", "000004", 7.9, 5.3));
 		graduateList.push_back(new TEIAthensGraduate("Dionisis Gakis", "000008", 9.8, 6.4));
@@ -43,11 +48,18 @@ int main() {
 		cerr << "Error Grade Input" << endl;
 	}
 	
-	cout << "\nNumber of Entries: " << graduateList.size() << endl;
-	DisplayList(graduateList,it);
+
+	//DisplayList(graduateList,it);
 	//FindStudentByID(graduateList, it);
 	//graduateList.sort();
-	//DisplayList(graduateList, it);
+	DisplayList(graduateList, it);
+	averageGradeTeiAthens = AverageGrade‘EIAthens(graduateList, it);
+	averageGradeTeiPeireus = AverageGrade‘EIPeireus(graduateList, it);
+	cout << "----------------------------------------------------------------------------------------------" << endl;
+	cout << "Average Grade 'TEI Athens': " << averageGradeTeiAthens << endl;
+	cout << "Average Grade 'TEI Peireus': " << averageGradeTeiPeireus << endl;
+	cout << ((averageGradeTeiAthens > averageGradeTeiPeireus) ? "TEI ATHENS has biggest average grade" : "TEI Peireus has biggest average grade") << endl;
+	cout << "\nNumber of Entries: " << graduateList.size() << endl;
 	cout << "Bye" << endl;
 
 	//delete Maria;
@@ -87,13 +99,29 @@ void FindStudentByID(list <Graduate*> l, list <Graduate*>::iterator it)
 	} while (choice != 'Y' && choice != 'y');
 
 }
-double AverageGrade(list <Graduate*> l, list <Graduate*>::iterator it)
+double AverageGrade‘EIPeireus(list <Graduate*> l, list <Graduate*>::iterator it)
 { 
 	double averageGrade = 0;
 	double sum = 0;
 	for (it = l.begin(); it != l.end(); it++)
 	{
+		if ((*it)->GetGraduateGrade() && dynamic_cast<TEIPeireusGraduate*>(*it))
 		sum = sum + (*it)->GetGraduateGrade();
 	}
 
+	averageGrade = sum / TEIPeireusGraduate::numOfTEIPeireusGraduate;
+	return averageGrade;
+}
+double AverageGrade‘EIAthens(list <Graduate*> l, list <Graduate*>::iterator it)
+{
+	double averageGrade = 0;
+	double sum = 0;
+	for (it = l.begin(); it != l.end(); it++)
+	{
+		if((*it)->GetGraduateGrade() && dynamic_cast<TEIAthensGraduate*>(*it))
+			sum = sum + (*it)->GetGraduateGrade();
+	}
+
+	averageGrade = sum / TEIAthensGraduate::numOfTEIAthensGraduate;
+	return averageGrade;
 }

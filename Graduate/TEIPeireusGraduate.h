@@ -7,6 +7,8 @@ using namespace std;
 
 
 class TEIPeireusGraduate : public Graduate{
+public:
+	static int numOfTEIPeireusGraduate;
 private:
 	double graduateGrade;
 	double yearsOfStudies;
@@ -25,5 +27,6 @@ public:
 
 	bool operator<(TEIPeireusGraduate &);
 	bool operator>(TEIPeireusGraduate &);
+	bool operator==(TEIPeireusGraduate&);
 };
 

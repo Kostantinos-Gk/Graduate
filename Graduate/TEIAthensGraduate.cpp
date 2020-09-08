@@ -1,8 +1,11 @@
 #include "TEIAthensGraduate.h"
 
+int TEIAthensGraduate:: numOfTEIAthensGraduate = 0;
+
 TEIAthensGraduate::TEIAthensGraduate():Graduate(){
 	graduateGrade = 0.0;
 	yearsOfStudies = 0.0;
+	numOfTEIAthensGraduate++;
 }
 
 TEIAthensGraduate::TEIAthensGraduate(string fullName,string studentCode,double graduateGrade, double yearsOfStudies):Graduate(fullName,studentCode)
@@ -11,10 +14,12 @@ TEIAthensGraduate::TEIAthensGraduate(string fullName,string studentCode,double g
 	if (graduateGrade < 5 || graduateGrade > 10)
 		throw GradeException();
 	this->yearsOfStudies = yearsOfStudies;
+	numOfTEIAthensGraduate++;
 }
 
 TEIAthensGraduate::~TEIAthensGraduate()
 {
+	numOfTEIAthensGraduate--;
 }
 
 void TEIAthensGraduate::SetGraduateGrade(double graduateGrade)
@@ -56,6 +61,11 @@ bool TEIAthensGraduate::operator<(TEIAthensGraduate& right)
 bool TEIAthensGraduate::operator>(TEIAthensGraduate& right)
 {
 	return (GetGraduateGrade() > right.GetGraduateGrade());
+}
+
+bool TEIAthensGraduate::operator==(TEIAthensGraduate& right)
+{
+	return (GetGraduateGrade() == right.GetGraduateGrade());
 }
 
 ostream& operator<<(ostream& left, TEIAthensGraduate& right)

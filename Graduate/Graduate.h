@@ -20,6 +20,8 @@ public:
 
 	friend ostream& operator<<(ostream&, Graduate&);
 	virtual void GraduateDisplay(ostream&);
+
+	virtual double GetGraduateGrade() const = 0;
 	
 };
 class GradeException {

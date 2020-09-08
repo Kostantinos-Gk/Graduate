@@ -1,7 +1,11 @@
 #include "TEIPeireusGraduate.h"
+
+int TEIPeireusGraduate::numOfTEIPeireusGraduate = 0;
+
 TEIPeireusGraduate::TEIPeireusGraduate(){
 	graduateGrade = 0.0;
 	yearsOfStudies = 0.0;
+	numOfTEIPeireusGraduate++;
 }
 
 TEIPeireusGraduate::TEIPeireusGraduate(string fullName, string studentCode, double graduateGrade, double yearsOfStudies):Graduate(fullName,studentCode)
@@ -10,10 +14,12 @@ TEIPeireusGraduate::TEIPeireusGraduate(string fullName, string studentCode, doub
 	if (graduateGrade < 5 || graduateGrade > 10)
 		throw GradeException();
 	this->yearsOfStudies = yearsOfStudies;
+	numOfTEIPeireusGraduate++;
 }
 
 TEIPeireusGraduate::~TEIPeireusGraduate()
 {
+	numOfTEIPeireusGraduate--;
 }
 
 void TEIPeireusGraduate::SetGraduateGrade(double graduateGrade)
@@ -56,6 +62,12 @@ bool TEIPeireusGraduate::operator>(TEIPeireusGraduate& right)
 {
 	return (GetGraduateGrade() > right.GetGraduateGrade());
 }
+
+bool TEIPeireusGraduate::operator==(TEIPeireusGraduate& right)
+{
+	return (GetGraduateGrade() == right.GetGraduateGrade());
+}
+
 ostream& operator<<(ostream& left, TEIPeireusGraduate& right)
 {
 	right.GraduateDisplay(left);
