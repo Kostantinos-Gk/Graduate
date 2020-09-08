@@ -46,11 +46,8 @@ double TEIPeireusGraduate::GetYearsOfStudies() const
 
 void TEIPeireusGraduate::GraduateDisplay(ostream& left)
 {
-	left << "TEI PEIREUS - Graduate Card \n---------------------" << endl <<
-			"FullName : " << GetFullName() << endl <<
-			"Student ID : " << GetStudentCode() << endl <<
-			"Years Of Studies : " << GetYearsOfStudies() << endl <<
-			"Grade : " << GetGraduateGrade() << endl;
+	left << "TEI PEIREUS - Graduate [ FullName : " << GetFullName() << "\t, Student ID : " << GetStudentCode() << 
+			", Years Of Studies : " << GetYearsOfStudies() << ", Grade : " << GetGraduateGrade() << " ]" <<  endl;
 }
 
 bool TEIPeireusGraduate::operator<(TEIPeireusGraduate& right)

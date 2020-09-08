@@ -32,9 +32,7 @@ string Graduate::GetStudentCode() const
 }
 
 void Graduate::GraduateDisplay(ostream& left){
-	left << "Graduate Card \n_______________" << endl <<
-		"FullName : " << GetFullName() << endl <<
-		"Student ID : " << GetStudentCode() << endl;
+	left << "Graduate [ FullName : " << GetFullName() << "\t , Student ID : " << GetStudentCode() << " ]" << endl;
 }
 
 ostream& operator<<(ostream& left, Graduate& right){
