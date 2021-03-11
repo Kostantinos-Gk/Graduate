@@ -15,8 +15,8 @@ using namespace std;
 
 void DisplayList(list <Graduate*> , list <Graduate*>::iterator );
 void FindStudentByID(list <Graduate*> , list <Graduate*>::iterator);
-double AverageGrade‘EIPeireus(list <Graduate*>, list <Graduate*>::iterator);
-double AverageGrade‘EIAthens(list <Graduate*>, list <Graduate*>::iterator);
+double AverageGrade√îEIPeireus(list <Graduate*>, list <Graduate*>::iterator);
+double AverageGrade√îEIAthens(list <Graduate*>, list <Graduate*>::iterator);
 void mysortTEIPeireus(list <Graduate*>, list <Graduate*>::iterator);
 
 //TODO 3 and 4.
@@ -35,15 +35,15 @@ int main() {
 	double averageGradeTeiAthens = 0.0;
 
 	try {
-		graduateList.push_back(new TEIPeireusGraduate("Maria Oikonomidi", "000001", 5.5, 7.0));
-		graduateList.push_back(new TEIAthensGraduate("Nikos Spirou", "000002", 5.0, 7.0));
-		graduateList.push_back(new TEIAthensGraduate("Giannis Alifantis", "000003", 8.0, 6.6));
-		graduateList.push_back(new TEIAthensGraduate("Kyriakos Swthriou", "000004", 7.9, 5.3));
-		graduateList.push_back(new TEIAthensGraduate("Dionisis Gakis", "000008", 9.8, 6.4));
-		graduateList.push_back(new TEIPeireusGraduate("Apostolis Gakis", "234523", 8.2, 6.7));
-		graduateList.push_back(new TEIPeireusGraduate("Marina Gazaiou", "123456", 9.0, 7.2));
-		graduateList.push_back(new TEIPeireusGraduate("Trifonas Samaras", "234673", 5.5, 5.2));
-		graduateList.push_back(new TEIPeireusGraduate("Sakis Rouvas", "123654", 5.5, 5.8));
+		graduateList.push_back(new TEIPeireusGraduate("Name 1", "000001", 5.5, 7.0));
+		graduateList.push_back(new TEIAthensGraduate("Name 2", "000002", 5.0, 7.0));
+		graduateList.push_back(new TEIAthensGraduate("Name 3", "000003", 8.0, 6.6));
+		graduateList.push_back(new TEIAthensGraduate("Name 4", "000004", 7.9, 5.3));
+		graduateList.push_back(new TEIAthensGraduate("Name 5", "000008", 9.8, 6.4));
+		graduateList.push_back(new TEIPeireusGraduate("Name 6", "234523", 8.2, 6.7));
+		graduateList.push_back(new TEIPeireusGraduate("Name 7", "123456", 9.0, 7.2));
+		graduateList.push_back(new TEIPeireusGraduate("Name 8", "234673", 5.5, 5.2));
+		graduateList.push_back(new TEIPeireusGraduate("Name 9", "123654", 5.5, 5.8));
 	}
 	catch(const GradeException &ex){
 		cerr << "Error Grade Input" << endl;
@@ -55,8 +55,8 @@ int main() {
 	graduateList.sort();
 	cout << "-------------------------------------------------------------------------------------------------" << endl;
 	DisplayList(graduateList, it);
-	averageGradeTeiAthens = AverageGrade‘EIAthens(graduateList, it);
-	averageGradeTeiPeireus = AverageGrade‘EIPeireus(graduateList, it);
+	averageGradeTeiAthens = AverageGrade√îEIAthens(graduateList, it);
+	averageGradeTeiPeireus = AverageGrade√îEIPeireus(graduateList, it);
 	cout << "-------------------------------------------------------------------------------------------------" << endl;
 	cout << "Average Grade 'TEI Athens': " << averageGradeTeiAthens << endl;
 	cout << "Average Grade 'TEI Peireus': " << averageGradeTeiPeireus << endl;
@@ -99,7 +99,7 @@ void FindStudentByID(list <Graduate*> l, list <Graduate*>::iterator it)
 	} while (choice != 'Y' && choice != 'y');
 
 }
-double AverageGrade‘EIPeireus(list <Graduate*> l, list <Graduate*>::iterator it)
+double AverageGrade√îEIPeireus(list <Graduate*> l, list <Graduate*>::iterator it)
 { 
 	double averageGrade = 0;
 	double sum = 0;
@@ -112,7 +112,7 @@ double AverageGrade‘EIPeireus(list <Graduate*> l, list <Graduate*>::iterator it)
 	averageGrade = sum / TEIPeireusGraduate::numOfTEIPeireusGraduate;
 	return averageGrade;
 }
-double AverageGrade‘EIAthens(list <Graduate*> l, list <Graduate*>::iterator it)
+double AverageGrade√îEIAthens(list <Graduate*> l, list <Graduate*>::iterator it)
 {
 	double averageGrade = 0;
 	double sum = 0;
