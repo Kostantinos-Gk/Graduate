@@ -23,7 +23,7 @@ void mysortTEIPeireus(list <Graduate*>, list <Graduate*>::iterator);
 
 int main() {
 	/*
-	Graduate *Maria = new TEIPeireusGraduate("Maria Oikonomidi", "000001", 5.5, 7.0);
+	Graduate *Maria = new TEIPeireusGraduate("Maria Stilianidi", "000001", 5.5, 7.0);
 	Graduate *Apo = new TEIPeireusGraduate("Apostolis Gakis", "234523", 8.2, 6.7);
 	Graduate* Giannis = new TEIAthensGraduate("Giannis Alifantis", "000003", 8.0, 6.6);
 
